@@ -1,0 +1,154 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner input = new Scanner(System.in);
+        String savedUsername= "Steph";
+        String savedPassword= "Pajac";
+        String dynamicUsername1 ="none",
+                dynamicPassword1 = "none",
+                dynamicUsername2 ="none",
+                dynamicPassword2 = "none",
+                dynamicUsername3 ="none",
+                dynamicPassword3 = "none";
+
+        String username, password, choice;
+        int naka_login = 0;
+
+        while(naka_login < 1) {
+            System.out.println("LOGIN");
+
+            System.out.println("Enter your username: ");
+            username = new Scanner(System.in).next();
+            System.out.println("Enter your password: ");
+            password = new Scanner(System.in).next();
+
+            if (username.equals(savedUsername) || username.equals(dynamicUsername1)) {
+                if (username.equals(savedUsername) && password.equals(savedPassword)) {
+                    System.out.println("Welcome to TUP " + username);
+                    naka_login = 1;
+
+                } else if (username.equals(dynamicUsername1) && password.equals(dynamicPassword1)) {
+                    System.out.println("Welcome to TUP " + username);
+                    naka_login = 1;
+
+
+                } else if (username.equals(dynamicUsername2) && password.equals(dynamicPassword2)) {
+                    System.out.println("Welcome " + username);
+                    naka_login = 1;
+
+                } else if (username.equals(dynamicUsername3) && password.equals(dynamicPassword3)) {
+                    System.out.println("Welcome to TUP" + username);
+                    naka_login = 1;
+
+                } else {
+                    System.out.println("Wrong password!");
+                }
+            } else {
+                System.out.println("Username not found!");
+                System.out.println("Would you like to create an account?Y/N");
+                choice = input.next();
+                if (choice.equals("Y")) {
+                    if (dynamicUsername1.equals("none")) {
+
+                        System.out.println("Please enter new username: ");
+
+                        dynamicUsername1 = input.next();
+
+                        System.out.println("Please enter new password: ");
+
+                        dynamicPassword1 = input.next();
+
+                    } else if (dynamicUsername2.equals("none")) {
+
+                        System.out.println("Please enter new username: ");
+
+                        dynamicUsername2 = input.next();
+
+                        System.out.println("Please enter new password: ");
+
+                        dynamicPassword2 = input.next();
+
+                    } else if (dynamicUsername3.equals("none")) {
+
+                        System.out.println("Please enter new username: ");
+
+                        dynamicUsername3 = input.next();
+
+                        System.out.println("Please enter new password: ");
+
+                        dynamicPassword3 = input.next();
+                    }
+                }if (choice.equals("N")) {
+                    break;
+                }
+            }
+
+
+            //Game NANADI YA
+
+
+            while (naka_login > 0) {
+                double secretNumber;
+                double guess = 0;
+                double chances = 5;
+                double difference = 0;
+
+                System.out.println("enter your secret Number");
+                secretNumber = input.nextInt();
+                System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+
+
+                if (secretNumber == 0) ;
+                while (chances != 0) {
+                    System.out.println("enter your guess");
+                    guess = input.nextInt();
+                    difference = Math.abs(secretNumber - guess);
+
+
+                    //Game mechanics
+                    if (guess == secretNumber) {
+                        System.out.println("Wow!");
+                        break;
+                    } else if (guess > secretNumber) {
+                        System.out.println("Too high!");
+                        chances--;
+                    } else {
+                        System.out.println("Too low!");
+                        chances--;
+                    }
+
+
+                    //Detect and notify Difference
+                    if (difference < 10) {
+                        System.out.println("Lapit Lapit kanalang gidya");
+                    } else if (difference < 20) {
+                        System.out.println("Lapit na guro");
+                    }else if (difference > 30) {
+                        System.out.println("Layo Layo");
+                    }
+
+
+                    System.out.println("You have " + chances + " chances");
+                }
+
+
+                //finish
+                if (chances == 0) {
+                    System.out.println("The Secret Number is " + secretNumber);
+                }
+
+            }
+
+
+
+        }
+    }
+}
+
+
+
+
+
+
